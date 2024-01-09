@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JavaScript & HTML</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="banner">
+            <h1>Learn JavaScript & HTML</h1>
+            <p>Strona zawierająca podstawowe elementy HTML, CSS i JavaScript z wyjaśnieniami.</p>
+        </header>
+        <section class="explanation">
+            <h2>1. Podłączanie JavaScript do HTML</h2>
+            <p>Aby używać JavaScript w pliku HTML, możesz dodać skrypt JavaScript bezpośrednio w sekcji <code>&lt;head&gt;</code> lub <code>&lt;body&gt;</code>, albo załadować zewnętrzny plik JavaScript.</p>
+            <pre class="code">&lt;script src="script.js" defer&gt;&lt;/script&gt;</pre>
+        </section>
+        <section class="explanation">
+            <h2>2. Podstawowe składniki JavaScript</h2>
+            <p><strong>Zmienne:</strong></p>
+            <pre class="code">// Deklaracja zmiennej<br>var liczba = 42;<br><br>// Można też używać let (dodane w nowszych wersjach JavaScript)<br>let nazwa = "Hello";<br><br>// Stałe<br>const PI = 3.14;</pre>
+            <p><strong>Funkcje:</strong></p>
+            <pre class="code">function witajSwiecie() {<br>    alert("Witaj, świecie!");<br>}</pre>
+            <p><strong>Instrukcje warunkowe:</strong></p>
+            <pre class="code">let wiek = 18;<br>if (wiek >= 18) {<br>    console.log("Jesteś pełnoletni");<br>} else {<br>    console.log("Nie jesteś pełnoletni");<br>}</pre>
+            <p><strong>Pętle:</strong></p>
+            <pre class="code">// Pętla for<br>for (let i = 0; i &lt; 5; i++) {<br>    console.log(i);<br>}</pre>
+        </section>
+        <section class="explanation">
+            <h2>3. Manipulacja HTML i CSS</h2>
+            <p><strong>Pobieranie elementów HTML:</strong></p>
+            <pre class="code">// Pobranie elementu po id<br>let naglowek = document.getElementById("mojNaglowek");</pre>
+            <p><strong>Manipulacja treścią i stylem:</strong></p>
+            <pre class="code">// Zmiana treści elementu<br>naglowek.innerHTML = "Nowy nagłówek";</pre>
+            <p><strong>Obsługa zdarzeń:</strong></p>
+            <pre class="code">// Obsługa zdarzenia kliknięcia<br>przyciski[0].addEventListener("click", function() {<br>    alert("Przycisk został kliknięty!");<br>});</pre>
+        </section>
+        <section class="explanation">
+            <h2>4. Przydatne operacje JavaScript w HTML</h2>
+            <p><strong>Manipulacja atrybutami elementów HTML:</strong></p>
+            <pre class="code">// Ustawienie atrybutu "src" dla obrazka o id "mojeZdjecie"<br>let mojeZdjecie = document.getElementById("mojeZdjecie");<br>mojeZdjecie.setAttribute("src", "nowe-zdjecie.jpg");</pre>
+
+            <p><strong>Manipulacja Klasami:</strong></p>
+            <pre class="code">// Dodanie klasy do elementu
+document.getElementById("mojElement").classList.add("nowaKlasa");
+
+// Usunięcie klasy z elementu
+document.getElementById("mojElement").classList.remove("staraKlasa");
+
+// Sprawdzenie, czy element ma daną klasę
+if (document.getElementById("mojElement").classList.contains("jakasKlasa")) {
+    console.log("Element ma daną klasę");
+}</pre>
+
+            <p><strong>Pobieranie wartości z formularza:</strong></p>
+            <pre class="code">// Pobranie wartości z pola tekstowego o id "mojePoleTekstowe"<br>let mojePoleTekstowe = document.getElementById("mojePoleTekstowe");<br>let wartosc = mojePoleTekstowe.value;<br>console.log("Wprowadzona wartość: " + wartosc);</pre>
+
+            <p><strong>Tworzenie nowych elementów HTML:</strong></p>
+            <pre class="code">// Stworzenie nowego paragrafu<br>let nowyParagraf = document.createElement("p");<br>nowyParagraf.textContent = "To jest nowy paragraf!";<br>document.body.appendChild(nowyParagraf);</pre>
+
+            <p><strong>Obsługa formularzy:</strong></p>
+            <pre class="code">// Przechwytywanie zdarzenia submit formularza<br>let formularz = document.getElementById("mojFormularz");<br>formularz.addEventListener("submit", function(event) {<br>    event.preventDefault(); // Zapobieganie domyślnej akcji formularza<br>    console.log("Formularz został wysłany!");<br>});</pre>
+
+            <p><strong>Zegary i interwały czasowe:</strong></p>
+            <pre class="code">// Wywołanie funkcji co sekundę<br>let interwal = setInterval(function() {<br>    console.log("Minęła sekunda!");<br>}, 1000);<br><br>// Przerwanie interwału po 5 sekundach<br>setTimeout(function() {<br>    clearInterval(interwal);<br>    console.log("Interwał zatrzymany po 5 sekundach.");<br>}, 5000);</pre>
+
+            <p><strong>Local Storage:</strong></p>
+            <pre class="code">// Zapis do Local Storage<br>localStorage.setItem("klucz", "wartość");<br><br>// Odczyt z Local Storage<br>let odczytanaWartosc = localStorage.getItem("klucz");<br>console.log("Wartość z Local Storage: " + odczytanaWartosc);</pre>
+
+            <p><strong>Fetch API:</strong></p>
+            <pre class="code">// Pobieranie danych z API<br>fetch('https://api.example.com/data')<br>    .then(response => response.json())<br>    .then(data => console.log(data))<br>    .catch(error => console.error('Błąd:', error));</pre>
+        </section>
+        <section class="explanation">
+            <h2>5. Dodatkowe Funkcje JavaScript</h2>
+
+            <p><strong>Geolokalizacja:</strong></p>
+            <pre class="code">// Pobranie geolokalizacji użytkownika<br>navigator.geolocation.getCurrentPosition(function(position) {<br>    console.log("Szerokość geograficzna: " + position.coords.latitude);<br>    console.log("Długość geograficzna: " + position.coords.longitude);<br>});</pre>
+
+            <p><strong>Animacje CSS:</strong></p>
+            <pre class="code">// Dodanie klasy do elementu rozpoczynającej animację<br>let animowanyElement = document.getElementById("animowanyElement");<br>animowanyElement.classList.add("animacja-start");</pre>
+
+            <p><strong>WebSockets:</strong></p>
+            <pre class="code">// Utworzenie połączenia WebSocket<br>let socket = new WebSocket("wss://example.com");<br>socket.onopen = function() {<br>    console.log("Połączenie WebSocket otwarte.");<br>};</pre>
+
+            <p><strong>Drag and Drop:</strong></p>
+            <pre class="code">// Implementacja obsługi przeciągania i upuszczania<br>let przeciaganyElement = document.getElementById("przeciaganyElement");<br>przeciaganyElement.addEventListener("dragstart", function(event) {<br>    event.dataTransfer.setData("text", "To jest przeciagany tekst.");<br>});</pre>
+        </section>
+        <section class="explanation">
+            <h2>6. Manipulacja Formularzami HTML przy użyciu JavaScript</h2>
+            <p><strong>Pobieranie danych z formularza:</strong></p>
+            <pre class="code">// Pobranie wartości pola tekstowego<br>let poleTekstowe = document.getElementById("poleTekstowe");<br>let wartoscPola = poleTekstowe.value;<br>console.log("Wartość pola tekstowego: " + wartoscPola);</pre>
+
+            <p><strong>Walidacja formularza:</strong></p>
+            <pre class="code">// Walidacja pola email<br>let poleEmail = document.getElementById("poleEmail");<br>let wartoscEmail = poleEmail.value;<br>if (!wartoscEmail.includes("@")) {<br>    alert("Niepoprawny adres email.");<br>}</pre>
+
+            <p><strong>Dynamiczne dodawanie pól do formularza:</strong></p>
+            <pre class="code">// Dodanie nowego pola tekstowego<br>let nowePoleTekstowe = document.createElement("input");<br>nowePoleTekstowe.type = "text";<br>nowePoleTekstowe.placeholder = "Nowe pole tekstowe";<br>document.getElementById("formularz").appendChild(nowePoleTekstowe);</pre>
+        </section>
+    </div>
+</body>
+</html>
